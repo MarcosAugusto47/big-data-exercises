@@ -33,9 +33,14 @@ p_load(vroom)
 ac1 = vroom(file = "dados/AC1.csv", 
             locale = locale("br", encoding = "UTF-8"),
             num_threads = 3) %>%
-      mutate_at(vars(matches('paciente|vacina')), as.factor)
+      mutate_at(vars(matches('paciente|vacina.*_nome')), as.factor)
   
-COLS = c('paciente_idade', 'paciente_enumSexoBiologico','paciente_racaCor_valor', 'vacina_grupoAtendimento_nome', 'vacina_nome', 'vacina_dataAplicacao')
+COLS = c('paciente_idade',
+         'paciente_enumSexoBiologico',
+         'paciente_racaCor_valor',
+         'vacina_grupoAtendimento_nome',
+         'vacina_nome',
+         'vacina_dataAplicacao')
 
 summary(ac1[, COLS])
 
@@ -46,9 +51,11 @@ files = do.call(paste0, expand.grid('dados/', list.files('dados/')[-8]))
 (ac1_hd = 282951680)
 
 ## D
-janssen = vroom(file = pipe("findstr JANSSEN dados\\AC1.csv"),
+janssen = vroom(file = pipe('findstr -i "document JANSSEN" dados\\AC1.csv'),
                 delim = ";",
                 locale = locale("br", encoding = "UTF-8"))
+
+teste = as.data.frame(janssen)
 
 janssen_memory_R = object.size(janssen)
 (ac1_memory_R - janssen_memory_R)
