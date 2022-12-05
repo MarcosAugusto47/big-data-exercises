@@ -83,7 +83,7 @@ Nessa lista, utilizamos os pacotes `vroom` e `data.table` para analisar, com rap
 
 **Dica**: Veja os slides sobre *web scraping* disponibilizados na página da equipe na plataforma MS Teams, em *Materiais de estudo*, na aba *arquivos*; Eles permitem a imediata identificação dos endereços dos arquivos a serem baixados. Use *wi-fi* para fazer os downloads!
 
-<!-- \textcolor{red}{\bf Solução} -->
+\textcolor{red}{\bf Solução}
 
 
 **b)** Usando a função `p_load` (do pacote `pacman`), carregue o pacote `vroom` (que deve ser usado em toda a Questão 1) e use-o para carregar o primeiro dos arquivos baixados para o R (*Dados AC - Parte 1*). Descreva brevemente o banco de dados.

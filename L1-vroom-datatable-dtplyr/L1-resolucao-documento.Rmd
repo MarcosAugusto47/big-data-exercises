@@ -147,13 +147,13 @@ O conjunto de dados consiste em registros de vacinação de pacientes, para o es
 \textcolor{red}{\bf Solução:}
 
 ```{r}
-files = do.call(paste0, expand.grid('dados/', list.files('dados/')[-8]))
+files = do.call(paste0, expand.grid('dados/', list.files('dados/')))
 (dados_folder_size = sum(sapply(files, file.size)))
 (ac1_memory_R = object.size(ac1))
 (ac1_hd = 282951680)
 ```
 
-O tamanho total de todos os arquivos é de 7360741789 bytes, ler algo desse tamanho irá provavelmente tornar o R muito lento. Nota-se que o tamanho do dataset do Acre (Parte 1) é um pouco menor (255165840) quando comparado com o do disco rígido (282951680).
+O tamanho total de todos os arquivos é de 8649962785 bytes, ler algo desse tamanho irá provavelmente tornar o R muito lento. Nota-se que o tamanho do dataset do Acre (Parte 1) é um pouco menor (255165840) quando comparado com o do disco rígido (282951680).
   
 **d)** Repita o procedimento do item **b)**, mas, dessa vez, carregue para a memória apenas os casos em que a vacina aplicada foi a Janssen. Para tanto, faça a filtragem usando uma conexão `pipe()`. Observe que a filtragem deve ser feita durante o carregamente, e não após ele.
 

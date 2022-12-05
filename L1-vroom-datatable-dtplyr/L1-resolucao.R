@@ -45,7 +45,7 @@ COLS = c('paciente_idade',
 summary(ac1[, COLS])
 
 ## C
-files = do.call(paste0, expand.grid('dados/', list.files('dados/')[-8]))
+files = do.call(paste0, expand.grid('dados/', list.files('dados/')))
 (dados_folder_size = sum(sapply(files, file.size)))
 (ac1_memory_R = object.size(ac1))
 (ac1_hd = 282951680)
